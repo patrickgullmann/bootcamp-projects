@@ -1,17 +1,23 @@
+body {
+    margin: 0;
+}
+
 header {
     padding: 10px;
     background-color: lightgrey;
-    height: 100px;
+    height: 60px;
 }
 
 #logo {
-    height: 80px;
-    width: 160px;
+    height: 50px;
     float: left;
+    position: relative;
+    left: 30px;
 }
 
 #burger {
-    height: 80px;
-    width: 80px;
+    height: 50px;
     float: right;
+    position: relative;
+    right: 30px;
 }
