@@ -4,7 +4,7 @@ body {
 
 header {
     padding: 10px;
-    background-color: lightgrey;
+    background-color: white;
     height: 60px;
 }
 
@@ -20,4 +20,51 @@ header {
     float: right;
     position: relative;
     right: 30px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    text-indent: 30px;
+    background-color: darkgray;
+    width: 100%;
+    padding: 10px;
+    color: white;
+}
+
+.bild {
+    height: 500px;
+    background-image: url("./assets/spices.jpg");
+    filter: brightness(80%);
+}
+
+.text {
+    background-color: lightgray;
+    height: 400px;
+}
+
+p,
+h1 {
+    margin: 0;
+}
+
+h1 {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+    top: 150px;
+}
+
+button {
+    position: relative;
+    top: 180px;
+    left: 50%;
+    font-size: 30px;
+    color: orange;
+    background-color: yellow;
+    border: 3px solid orange;
+    padding: 5px 50px;
+    border-radius: 25px;
+    transform: translateX(-50%);
 }
