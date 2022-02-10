@@ -5,42 +5,34 @@ body {
 header {
     padding: 10px;
     background-color: white;
-    height: 60px;
+    height: 48px;
 }
 
 #logo {
-    height: 50px;
+    height: 40px;
     float: left;
     position: relative;
     left: 30px;
 }
 
 #burger {
-    height: 50px;
+    height: 40px;
     float: right;
     position: relative;
     right: 30px;
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
     text-indent: 30px;
     background-color: darkgray;
-    width: 100%;
     padding: 10px;
     color: white;
 }
 
 .bild {
-    height: 500px;
+    height: 360px;
     background-image: url("./assets/spices.jpg");
     filter: brightness(80%);
-}
-
-.text {
-    background-color: lightgray;
-    height: 400px;
 }
 
 p,
@@ -73,3 +65,44 @@ button {
 //die 4 dinge unten
 //width:auto;
 //display:block; */
+
+.text {
+    background-color: lightgray;
+    height: 170px;
+    width: 100%;
+    display: table;
+}
+
+.cell {
+    width: 50%;
+    display: table-cell;
+    /* border: 1px black dotted; */
+    height: 50px;
+    padding: 20px;
+    padding-top: 40px;
+}
+
+.down {
+    padding-top: 80px;
+}
+
+.rightTxt {
+    text-align: right;
+}
+
+.nextEachOther {
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+    padding-top: 0;
+    vertical-align: top;
+}
+
+#circle {
+    height: 50px;
+    width: 50px;
+}
+
+h3 {
+    margin: 0;
+}
