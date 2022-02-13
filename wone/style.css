@@ -66,7 +66,7 @@ button {
 //width:auto;
 //display:block; */
 
-.text {
+.textTeil {
     background-color: lightgray;
     height: 170px;
     width: 100%;
@@ -105,4 +105,48 @@ button {
 
 h3 {
     margin: 0;
+}
+
+p {
+    width: 220px;
+}
+
+@media screen and (max-width: 500px) {
+    #logo {
+        height: 30px;
+        left: 20px;
+        margin-top: 10px;
+    }
+
+    #burger {
+        height: 30px;
+        right: 20px;
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    button {
+        font-size: 20px;
+    }
+
+    /* Ab hier unterer Teil */
+    p {
+        width: 220px;
+    }
+
+    .cell {
+        display: block;
+        width: auto;
+    }
+
+    .down {
+        padding-top: 40px;
+    }
+
+    .rightTxt {
+        text-align: left;
+    }
 }
