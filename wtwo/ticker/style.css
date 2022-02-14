@@ -6,7 +6,7 @@
 #headlines {
     white-space: nowrap;
     position: absolute;
-    left: 70%;
+    left: 100%;
 }
 
 /* if you have an absolute child the parent need to be relative! that the child sticks to it
@@ -17,14 +17,14 @@
     overflow-x: hidden; /* Otherwise you will see the text going further right */
     height: 1.5em;
     /* Do we need the next two? */
-    width: 100%;
-    border: 3px dotted cornflowerblue;
+    /* width: 100%;
+    border: 3px dotted cornflowerblue; */
 }
 
 #headlines a {
     padding-right: 30px; /* to have smth beetween the headlines*/
 }
 
-#headlines a:nth-child(even) {
-    background-color: lightseagreen; /* Do we need this? */
-}
+/* #headlines a:nth-child(even) {
+    background-color: lightseagreen; /* Do we need this? 
+} */

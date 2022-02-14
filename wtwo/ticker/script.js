@@ -13,21 +13,17 @@
     function moveHeadlines() {
         left--;
 
-        if (left <= -links[0].offsetWidth) {
-            /*offSetWidth zeigt an wie weit ein element draußen ist*/
-            console.log("first link is offscreen!");
-            // once the first links is completely offscreen, you'll need to take THAT link and make it the last link - send it to the back of the queue!
-            left += links[0].offsetWidth;
-            headlines.appendChild(links[0]);
-            // there are 2 things you need to do in here!!
-            // #1 - to avoid jumpiness behaviour, make sure that you account for the space that you're about to remove by adding the width of the link you're removing as the new value of left
-            // #2 - remove the first link and make it the last link! add it to the end of the queue!
+        /*offSetWidth zeigt an wie groß ein element draußen ist IMMER GLEICH GROß*/
+        //hier rein wenn so weiß draußen wie element lang
+        if (left == -links[0].offsetWidth) {
+            left += links[0].offsetWidth; //dass nicht 2 "nach vorne zu dem -position wo 1 war" springt left auf 0px setzen! da 2 aktuell an der stelle
+            headlines.appendChild(links[0]); //ersten nehmen und hinter hauen
         }
 
+        /*without this it would not move bc left is just a number*/
         headlines.style.left = left + "px";
-        console.log("left value after decrementing: ", left);
-
-        requestAnimationFrame(moveHeadlines);
+        //console.log("left value after decrementing: ", left);
+        requestAnimationFrame(moveHeadlines); //ist wie eine Schleife
     }
 
     moveHeadlines();
