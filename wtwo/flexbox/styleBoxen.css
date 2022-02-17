@@ -1,0 +1,50 @@
+/* 3. justify-content and align-items: center
+4. inline flex and vertical-align: top */
+
+.gross {
+    height: 200px;
+    width: 200px;
+    display: inline-flex;
+    /*vertical-align: top; /* wichtig dass nicht bewegen!!*/
+}
+
+.klein {
+    height: 50%;
+    width: 50%;
+}
+
+.eins {
+    background-color: grey;
+    justify-content: flex-end;
+}
+
+.zwei {
+    background-color: black;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.drei {
+    background-color: blue;
+    /* align-items: flex-end; */
+}
+
+.vier {
+    background-color: purple;
+}
+
+.einsk {
+    background-color: orange;
+}
+
+.zweik {
+    background-color: yellow;
+}
+
+.dreik {
+    background-color: green;
+}
+
+.vierk {
+    background-color: pink;
+}

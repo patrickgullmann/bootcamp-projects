@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    background-color: orange;
+    height: 70px;
+}
+
+footer {
+    background-color: purple;
+    height: 30px;
+}
+
+main {
+    background-color: grey;
+    flex-grow: 1;
+    /*für die dritte Aufgabe!, muss man flex machen da vom body nicht vererbt wird*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
