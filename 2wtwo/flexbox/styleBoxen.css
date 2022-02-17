@@ -5,7 +5,7 @@
     height: 200px;
     width: 200px;
     display: inline-flex;
-    /*vertical-align: top; /* wichtig dass nicht bewegen!!*/
+    vertical-align: top; /* wichtig dass nicht bewegen!!*/
 }
 
 .klein {
@@ -26,7 +26,7 @@
 
 .drei {
     background-color: blue;
-    /* align-items: flex-end; */
+    align-items: flex-end;
 }
 
 .vier {
