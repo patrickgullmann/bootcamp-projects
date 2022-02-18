@@ -1,0 +1,59 @@
+.eins {
+    vertical-align: top; /*gleiches Thema wie gestern*/
+    width: 300px;
+    height: 300px;
+    background-color: grey;
+    display: inline-grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+}
+
+.zwei {
+    vertical-align: top;
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    display: inline-grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+}
+
+.drei {
+    vertical-align: top;
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+    display: inline-grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+}
+
+.vier {
+    vertical-align: top;
+    width: 300px;
+    height: 300px;
+    background-color: purple;
+    display: inline-grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+}
+
+.einsk {
+    background-color: orange;
+    grid-column: 2;
+}
+
+.zweik {
+    background-color: yellow;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.dreik {
+    background-color: green;
+    grid-row: 2;
+}
+
+.vierk {
+    background-color: pink;
+}
