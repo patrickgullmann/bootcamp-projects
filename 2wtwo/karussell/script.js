@@ -15,7 +15,7 @@
         }
     });
 
-    //OPTION 2 für Zeile 7 bis 16 + achte drauf unten setTimeout wieder rein zu nehmen!
+    // //OPTION 2 für Zeile 7 bis 16 + achte drauf unten setTimeout wieder rein zu nehmen!
     // //addEventListener geht nicht auf kitties!!!! da ne Liste und kein einzelnes Object
     // for (var i = 0; i < kitties.length; i++) {
     //     kitties[i].addEventListener("transitionend", function (e) {
