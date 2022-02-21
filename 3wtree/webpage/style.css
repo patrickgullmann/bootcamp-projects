@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    /* position: relative; */
+}
+
+header {
+    padding: 10px;
+    background-color: white;
+    height: 48px;
+}
+
+#logo {
+    height: 40px;
+    float: left;
+    position: relative;
+    left: 30px;
+}
+
+#burger {
+    height: 40px;
+    float: right;
+    position: relative;
+    right: 30px;
+}
+
+footer {
+    text-indent: 30px;
+    background-color: darkgray;
+    padding: 10px;
+    color: white;
+}
+
+.bild {
+    height: 360px;
+    background-image: url("./assets/spices.jpg");
+    filter: brightness(80%);
+}
+
+p,
+h1 {
+    margin: 0;
+}
+
+h1 {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+    top: 150px;
+}
+
+button {
+    position: relative;
+    top: 180px;
+    left: 50%;
+    font-size: 30px;
+    color: orange;
+    background-color: yellow;
+    border: 3px solid orange;
+    padding: 5px 50px;
+    border-radius: 25px;
+    transform: translateX(-50%);
+}
+
+/* // allgemein 500px als trigger machen
+//die 4 dinge unten
+//width:auto;
+//display:block; */
+
+.textTeil {
+    background-color: lightgray;
+    height: 170px;
+    width: 100%;
+    display: table;
+}
+
+.cell {
+    width: 50%;
+    display: table-cell;
+    /* border: 1px black dotted; */
+    height: 50px;
+    padding: 20px;
+    padding-top: 40px;
+}
+
+.down {
+    padding-top: 80px;
+}
+
+.rightTxt {
+    text-align: right;
+}
+
+.nextEachOther {
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+    padding-top: 0;
+    vertical-align: top;
+}
+
+#circle {
+    height: 50px;
+    width: 50px;
+}
+
+h3 {
+    margin: 0;
+}
+
+p {
+    width: 220px;
+}
+
+@media screen and (max-width: 500px) {
+    #logo {
+        height: 30px;
+        left: 20px;
+        margin-top: 10px;
+    }
+
+    #burger {
+        height: 30px;
+        right: 20px;
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    button {
+        font-size: 20px;
+    }
+
+    /* Ab hier unterer Teil */
+    p {
+        width: 220px;
+    }
+
+    .cell {
+        display: block;
+        width: auto;
+    }
+
+    .down {
+        padding-top: 40px;
+    }
+
+    .rightTxt {
+        text-align: left;
+    }
+}
+
+.overlay {
+    background-color: rgb(0, 0, 0, 0.7);
+    position: fixed; /*absolute macht nur so weit wie Window nicht wie body + geht nicht mit!!!*/
+    height: 100%; /*fixed macht mit 100% so groß wie window und geht mit!!! --> beides nicht body größe*/
+    width: 100%; /*Trick: wenn ich body auf relative setze dann ist hier child absolut + 100% so groß wie body */
+    top: 0;
+    left: 0;
+    overflow-x: hidden; /* WICHTIG FÜR NAV BAR  */
+    visibility: hidden; /* betrifft auch side bar da vererbt*/
+}
+
+.side-nav {
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    width: 17%;
+    left: 100%;
+    top: 0;
+    transition: 2s; /*dass langsam wieder zurück geht */
+}
+
+.on {
+    transition-property: transform;
+    transition-duration: 2s;
+    transform: translateX(-100%);
+}
+
+.x {
+    position: relative;
+    left: 80%;
+    font-size: 30px;
+    color: grey;
+}
+
+.click {
+    font-size: 30px;
+    margin: 10px;
+    color: blue;
+}
+
+.logout {
+    margin: 10px;
+    margin-top: 30px;
+    color: blue;
+}
+
+@media screen and (max-width: 500px) {
+    .side-nav {
+        width: 50%;
+    }
+}
+
+/* denke bewegen in einem Grid oder flexbox einfacher */
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed; /*immer wie Window*/
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.modalContent {
+    background-color: white;
+    margin: 30% auto; /*auto for center*/
+    width: 40%;
+    padding: 50px 20px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.close {
+    color: grey;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+}
