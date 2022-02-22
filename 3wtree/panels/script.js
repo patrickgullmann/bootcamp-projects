@@ -6,9 +6,9 @@ var box = $("#box");
 slide.on("mousedown", function (e) {
     e.preventDefault();
     box.on("mousemove", function (e) {
-        console.log(e.target); //WIESO gibt es hier zwei Offsetx??? -> weil manchmal ja Bild und manchmal Bar das Target
-        // aber kp warum test e.target == slide nicht funktioniert
-        if (e.offsetX > slide.outerWidth()) {
+        //console.log(e.target); //WIESO gibt es hier zwei Offsetx??? -> weil manchmal ja Bild und manchmal Bar das Target
+        // $(e.target) == slide funktioniert nicht, da bei jQuery unterschiedliche Objekte die auf selbes referenzen; bei normalen (ohne jQuery hätte funktioniert)
+        if (e.target.id != "slide") {
             slide.css({
                 left: e.offsetX + "px",
             });

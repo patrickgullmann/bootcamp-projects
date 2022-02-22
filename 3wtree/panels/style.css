@@ -30,7 +30,7 @@ body {
 #box #slide {
     background-color: grey;
     height: 100%;
-    width: 7px;
+    width: 8px;
     left: 100%;
     transform: translateX(-100%);
     z-index: 2;
