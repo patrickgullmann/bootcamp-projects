@@ -6,6 +6,7 @@ var box = $("#box");
 slide.on("mousedown", function (e) {
     e.preventDefault();
     box.on("mousemove", function (e) {
+        //console.log(e.offsetX); //WIESO gibt es hier zwei Offsetx???
         if (e.offsetX > slide.outerWidth()) {
             slide.css({
                 left: e.offsetX + "px",
