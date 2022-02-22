@@ -6,7 +6,8 @@ var box = $("#box");
 slide.on("mousedown", function (e) {
     e.preventDefault();
     box.on("mousemove", function (e) {
-        //console.log(e.offsetX); //WIESO gibt es hier zwei Offsetx???
+        console.log(e.target); //WIESO gibt es hier zwei Offsetx??? -> weil manchmal ja Bild und manchmal Bar das Target
+        // aber kp warum test e.target == slide nicht funktioniert?
         if (e.offsetX > slide.outerWidth()) {
             slide.css({
                 left: e.offsetX + "px",
