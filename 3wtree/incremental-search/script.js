@@ -2,7 +2,7 @@
     var inp = $("input");
     var resultsContainer = $("#results");
 
-    inp.on("input focus", function (e) {
+    inp.on("input focus", function () {
         var val = inp.val(); //inp.on("input focus", wegen wieder rein klicken
 
         if (!val) {
@@ -22,7 +22,7 @@
 
         if (matches.length) {
             var resultsHtml = "";
-            for (var i = 0; i < matches.length; i++) {
+            for (i = 0; i < matches.length; i++) {
                 resultsHtml += "<div class='result'>" + matches[i] + "</div>";
             }
             resultsContainer.html(resultsHtml); //changes the innerHTML insides the div of the div with the id results -> it is not outerHTML where the id is stored!!
@@ -68,7 +68,7 @@
         } else if (e.key == "ArrowUp" && highlighted.index() == 0) {
             return; //do nothing
         } else if (e.key == "ArrowUp" && highlighted.length == 1) {
-            var position = highlighted.index(); //index im Parent Container
+            position = highlighted.index(); //index im Parent Container
             highlighted.removeClass("highlight"); // $(".result") auch möglich
             results.eq(position - 1).addClass("highlight");
         }
@@ -81,7 +81,7 @@
     });
 
     //Erscheinen lassen mit focus oben
-    inp.on("blur", function (e) {
+    inp.on("blur", function () {
         resultsContainer.empty();
     });
 
