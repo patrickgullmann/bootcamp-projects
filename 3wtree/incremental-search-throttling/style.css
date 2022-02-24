@@ -1,0 +1,9 @@
+#search {
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.highlight {
+    background-color: grey;
+    color: blue;
+}
