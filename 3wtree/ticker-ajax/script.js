@@ -1,6 +1,6 @@
 (function () {
     var headlines = $("#headlines");
-    var links = $("a");
+    var links; //unten Zuweisen! Nachdem geladen!!
     var reqId;
     var left = headlines.offset().left;
 
@@ -19,14 +19,15 @@
                 myHtml = myHtml + link;
             }
             headlines.html(myHtml); // $("#headlines") wuerde auch gehen, haben ja erstellt (ajax request immer spaeter, egal wo im Code steht)
+
+            links = $("a");
             moveHeadlines();
-            //reset links
+            addStopMovingEventListener(); //als Funktion rufen
         },
     });
 
-    //1. wo moveHeadlines? Inside ajax.req oder draußen ä ö ü 
-    //2. ajaxcomplete den rest reinhauen, dass zu passendem Zeitpunkt gelöst?
-    //eventdelegation
+    //1. wo moveHeadlines? -> drinnen besser
+    //2. ajaxcomplete den rest reinhauen nicht gut -> Über funktionen lösen
 
     function moveHeadlines() {
         left--;
@@ -44,20 +45,20 @@
         reqId = requestAnimationFrame(moveHeadlines);
     }
 
-    //no need to looooop again, -> einfacher mit jQuery
-    links.on("mouseenter", function (e) {
-        cancelAnimationFrame(reqId);
-        //e.target.style.color = "blue";
-        $(e.target).css({
-            color: "blue",
+    //mache über Funktionen verfügbar, die ganzen Eventlistener
+    function addStopMovingEventListener() {
+        links.on("mouseenter", function (e) {
+            cancelAnimationFrame(reqId);
+            $(e.target).css({
+                color: "blue",
+            });
         });
-    });
 
-    links.on("mouseleave", function (e) {
-        moveHeadlines();
-        //e.target.style.color = "-webkit-link";
-        $(e.target).css({
-            color: "-webkit-link",
+        links.on("mouseleave", function (e) {
+            moveHeadlines();
+            $(e.target).css({
+                color: "-webkit-link",
+            });
         });
-    });
+    }
 })();
