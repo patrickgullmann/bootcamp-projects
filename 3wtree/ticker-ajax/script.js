@@ -10,12 +10,7 @@
         success: function (response) {
             var myHtml = "";
             for (var i = 0; i < response.length; i++) {
-                var link =
-                    "<a href=" +
-                    response[i].url +
-                    ">" +
-                    response[i].title +
-                    "</a>";
+                var link = "<a href=" + response[i].url + ">" + response[i].title +"</a>";
                 myHtml = myHtml + link;
             }
             headlines.html(myHtml); // $("#headlines") wuerde auch gehen, haben ja erstellt (ajax request immer spaeter, egal wo im Code steht)
