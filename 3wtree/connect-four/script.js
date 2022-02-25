@@ -13,6 +13,7 @@
         }
     }
 
+    //nur setzup der Animation
     spielerWechsel();
 
     $(".column").on("click", function (e) {
@@ -20,11 +21,6 @@
         //get all slots ..> go through them and add class to lowest empty
         var col = $(e.currentTarget);
         var slotsInCol = col.children();
-
-        //console.log($("#board").children());
-        // for (var i = 0; i < 7; i++) {
-        //     console.log($("#board").children()[i] === e.currentTarget);
-        // }
 
         for (var i = 5; i >= 0; i--) {
             if (
@@ -133,9 +129,15 @@
         });
 
         if (currentPlayer == "player1") {
-            text.html("PLAYER 1 TURN").css("color", "rgb(255, 115, 0)");
+            text.html("PLAYER 1 PLS SELECT").css({
+                color: "rgb(255, 115, 0)",
+                border: "solid 3px rgb(255, 115, 0)",
+            });
         } else {
-            text.html("PLAYER 2 TURN").css("color", "rgb(0, 255, 213)");
+            text.html("PLAYER 2 PLS SELECT").css({
+                color: "rgb(0, 255, 213)",
+                border: "solid 3px rgb(0, 255, 213)",
+            });
         }
     }
 
@@ -167,15 +169,14 @@
     ];
 })();
 
-//first solution
-
+//other difficult solutions require smth like this:
 //$(".column").eq(0).children.eq(1); //erste Spalte eines nach rechts
 
-//kann alle in einem Spannen
+//Gedanken von mir:
+//console.log($("#board").children());
+// for (var i = 0; i < 7; i++) {
+//     console.log($("#board").children()[i] === e.currentTarget);
+// }
 
-//take theese 24 things and check if the eqs at this positions have all the same class
-//of the current player if so -> winning
-
-//Animation: zb. Runder Kreis in der Farbe der meiner maus folgt !!!
-//oder einfach ne Player Anzeige die der Maus folgt!!!
+//Andere Transitions:
 //oder einfach das Ding Rotieren lassen

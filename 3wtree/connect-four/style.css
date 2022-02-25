@@ -59,8 +59,8 @@ body {
 /* to show current player */
 .spielerAnzeige {
     height: 50px;
-    width: 100px;
+    width: 110px;
     position: absolute;
-    border: solid 2px grey;
+    padding: 4px;
     top: 630px;
 }
