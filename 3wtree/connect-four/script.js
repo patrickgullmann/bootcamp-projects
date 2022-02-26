@@ -93,6 +93,9 @@
         var close = $("#restart");
         var modalText = $("h1");
 
+        var text = $(".spielerAnzeige");
+        text.hide();
+
         if (currentPlayer == "player1") {
             modalText
                 .html("THE WINNER IS: PLAYER 1")
@@ -109,6 +112,9 @@
             e.stopPropagation();
             modal.hide();
             reStart();
+            //nur Visuell
+            spielerWechsel();
+            text.show();
         });
     }
 
