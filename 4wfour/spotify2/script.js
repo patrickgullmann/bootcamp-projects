@@ -100,15 +100,25 @@
                 $(".results-container").append(resultsHtml);
                 moreButton.show();
 
-                //need to check both true (bc if there is no next!!!) that doe does not break
                 var nextUrl =
                     response.next &&
                     response.next.replace(
                         "api.spotify.com/v1/search",
                         "spicedify.herokuapp.com/spotify"
-                    ); //da wir nicht direkt auf Spotify können;
-                next = nextUrl; //change for next get request
+                    );
+                next = nextUrl;
+                //setUrl(response.next); //könnten auch als Funktion machen, und oben natürlich auch
             },
         });
     });
+
+    // function setUrl(next) {
+    //     var nextUrl =
+    //         next &&
+    //         next.replace(
+    //             "api.spotify.com/v1/search",
+    //             "spicedify.herokuapp.com/spotify"
+    //         ); //da wir nicht direkt auf Spotify können;
+    //     next = nextUrl; //change for next get request
+    // }
 })();
