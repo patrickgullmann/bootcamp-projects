@@ -1,4 +1,16 @@
 (function () {
+    /* <------DO NOT TOUCH (brauchen wir da wir keinen Server haben)-----> */
+    Handlebars.templates = Handlebars.templates || {};
+
+    var templates = document.querySelectorAll(
+        'script[type="text/x-handlebars-template"]'
+    );
+
+    Array.prototype.slice.call(templates).forEach(function (script) {
+        Handlebars.templates[script.id] = Handlebars.compile(script.innerHTML);
+    });
+    /* <-----------------------DO NOT TOUCH ---------------------> */
+
     var moreButton = $(".more-button");
     var next = "";
 
@@ -18,14 +30,26 @@
 
                 if (response.items.length == 0) {
                     moreButton.hide();
-                    $(".results-notification").html("<p>No results found<p>");
-                } else {
+                    var notification = {
+                        message: "No results found",
+                    };
                     $(".results-notification").html(
-                        "<p>Results for: " + userInput + "<p>"
+                        Handlebars.templates.templateNotificationNo(
+                            notification
+                        )
+                    );
+                } else {
+                    notification = {
+                        message: userInput,
+                    };
+                    $(".results-notification").html(
+                        Handlebars.templates.templateNotificationYes(
+                            notification
+                        )
                     );
                 }
 
-                var resultsHtml = "";
+                var allResults = [];
                 for (var i = 0; i < response.items.length; i++) {
                     var defaultImage =
                         "https://www.hdwallpaper.nu/wp-content/uploads/2015/02/o-BROKEN-HEART-facebook676-660x330.jpg";
@@ -34,22 +58,22 @@
                         defaultImage = response.items[i].images[0].url;
                     }
 
-                    resultsHtml +=
-                        "<a href='" +
-                        response.items[i].external_urls.spotify +
-                        "'>" +
-                        "<img src='" +
-                        defaultImage +
-                        "' alt='image' >" +
-                        "</a>" +
-                        "<a href='" +
-                        response.items[i].external_urls.spotify +
-                        "'>" +
-                        response.items[i].name +
-                        "</a>";
+                    // var resultsHtml = ""; etc not needed
+                    var result = {
+                        link: response.items[i].external_urls.spotify,
+                        image: defaultImage,
+                        name: response.items[i].name,
+                    };
+                    allResults.push(result);
                 }
 
-                $(".results-container").html(resultsHtml);
+                // $(".results-container").html(resultsHtml); //not needed
+                //note: it would also work if we leave it as an array! but it expects an objecT -> loop over property
+                $(".results-container").html(
+                    Handlebars.templates.templateContainer({
+                        objResults: allResults,
+                    })
+                );
 
                 /* <----------------------NEUER TEIL für infinite scroll ------------------------>*/
                 // location.search is ?scroll=infinite und wenn größer -1> bedeutet es hat nen Index im String
@@ -89,7 +113,7 @@
                     success: function (response) {
                         response = response.artists || response.albums;
 
-                        var resultsHtml = "";
+                        var allResults = [];
                         for (var i = 0; i < response.items.length; i++) {
                             var defaultImage =
                                 "https://www.hdwallpaper.nu/wp-content/uploads/2015/02/o-BROKEN-HEART-facebook676-660x330.jpg";
@@ -98,22 +122,23 @@
                                 defaultImage = response.items[i].images[0].url;
                             }
 
-                            resultsHtml +=
-                                "<a href='" +
-                                response.items[i].external_urls.spotify +
-                                "'>" +
-                                "<img src='" +
-                                defaultImage +
-                                "' alt='image' >" +
-                                "</a>" +
-                                "<a href='" +
-                                response.items[i].external_urls.spotify +
-                                "'>" +
-                                response.items[i].name +
-                                "</a>";
+                            var result = {
+                                link: response.items[i].external_urls.spotify,
+                                image: defaultImage,
+                                name: response.items[i].name,
+                            };
+                            allResults.push(result);
                         }
 
-                        $(".results-container").append(resultsHtml);
+                        // $(".results-container").append(resultsHtml); //not needed
+                        /* YOU CAN ALSO CHANGE THE HTML TO APPEND */
+                        $(".results-container").append(
+                            Handlebars.templates.templateContainer({
+                                objResults: allResults,
+                            })
+                        );
+
+                        /* ab hier alt */
 
                         var nextUrl =
                             response.next &&
@@ -140,7 +165,7 @@
             success: function (response) {
                 response = response.artists || response.albums;
 
-                var resultsHtml = "";
+                var allResults = [];
                 for (var i = 0; i < response.items.length; i++) {
                     var defaultImage =
                         "https://www.hdwallpaper.nu/wp-content/uploads/2015/02/o-BROKEN-HEART-facebook676-660x330.jpg";
@@ -149,22 +174,23 @@
                         defaultImage = response.items[i].images[0].url;
                     }
 
-                    resultsHtml +=
-                        "<a href='" +
-                        response.items[i].external_urls.spotify +
-                        "'>" +
-                        "<img src='" +
-                        defaultImage +
-                        "' alt='image' >" +
-                        "</a>" +
-                        "<a href='" +
-                        response.items[i].external_urls.spotify +
-                        "'>" +
-                        response.items[i].name +
-                        "</a>";
+                    var result = {
+                        link: response.items[i].external_urls.spotify,
+                        image: defaultImage,
+                        name: response.items[i].name,
+                    };
+                    allResults.push(result);
                 }
 
-                $(".results-container").append(resultsHtml);
+                // $(".results-container").append(resultsHtml); //not needed
+                /* YOU CAN ALSO CHANGE THE HTML TO APPEND */
+                $(".results-container").append(
+                    Handlebars.templates.templateContainer({
+                        objResults: allResults,
+                    })
+                );
+
+                /* ab hier alt */
                 moreButton.show();
 
                 var nextUrl =
@@ -179,24 +205,12 @@
     });
 })();
 
-//add to the url ?scroll=infinite
-//location.search gives the string
-
-//incode check for querey string if so, hide more button and activite infite
-
-//location.search.indexOf("scroll=infite") if eequals 1 than it fits or > -1 just means it is somewhere
-
-// window.addEvenetListener("scroll", function(){}) firest when scrolling BUT DONT DO IT -> Fires to much
-
-//if user reached the bottum with the mouse
-
-// $(document).scrollTop() //how far we are aways from the top
-
-// $(window).height() //gives one higth of the window but does not change
-
-// $(document).height() // gives hight of whole document
-
-// if hight of window + how much scrolled from the top is equal equal to the entire page
-//than we are at bottom
-
-// eg from hight of window substract e.g. 300px that it is not already at the bottom
+//<----------------WORKAROUND BC I DINDT KNOW APPEND WORKS --------->
+// var oldContent = $(".results-container").html();
+// $(".results-container").html(
+//     Handlebars.templates.templateContainer({
+//         objResults: allResults,
+//     })
+// );
+// var newContent = $(".results-container").html();
+// $(".results-container").html(oldContent + newContent);

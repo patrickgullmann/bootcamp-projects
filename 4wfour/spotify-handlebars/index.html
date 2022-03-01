@@ -22,9 +22,23 @@
 
     <div class="results-notification"></div>
     <div class="results-container"></div>
-
     <button class="more-button">Show Me More Results</button>
-    
+
+
+    <script id="templateNotificationNo" type="text/x-handlebars-template">
+        <p>{{message}}</p>
+    </script>
+    <script id="templateNotificationYes" type="text/x-handlebars-template">
+        <p>Results for: {{message}}</p>
+    </script>
+    <script id="templateContainer" type="text/x-handlebars-template">
+        {{#objResults}}
+        <a href="{{link}}"> <img src="{{image}}" alt="some pic"></a>
+        <a href="{{link}}">{{name}}</a>
+        {{/objResults}}
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
