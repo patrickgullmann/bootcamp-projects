@@ -97,8 +97,7 @@
                         "</a>";
                 }
 
-                var old = $(".results-container").html();
-                $(".results-container").html(old + resultsHtml);
+                $(".results-container").append(resultsHtml);
                 moreButton.show();
 
                 //need to check both true (bc if there is no next!!!) that doe does not break
