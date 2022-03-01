@@ -16,6 +16,15 @@
             success: function (response) {
                 response = response.artists || response.albums;
 
+                if (response.items.length == 0) {
+                    moreButton.hide();
+                    $(".results-notification").html("<p>No results found<p>");
+                } else {
+                    $(".results-notification").html(
+                        "<p>Results for: " + userInput + "<p>"
+                    );
+                }
+
                 var resultsHtml = "";
                 for (var i = 0; i < response.items.length; i++) {
                     var defaultImage =
@@ -49,7 +58,9 @@
                     checkScrollPos();
                 } else {
                     // anonsten -> wenn nicht in URL stehen haben dann normal weitere mit Button Laden
-                    moreButton.show();
+                    if (response.items.length != 0) {
+                        moreButton.show();
+                    }
                 }
                 /* <----------------------Ende Neuer Teil ------------------------------------>*/
 
