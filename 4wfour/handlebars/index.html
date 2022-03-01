@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Templating</title>
+</head>
+<body>
+    
+    <h1>My Favourite Death Authors</h1>
+
+    <div class="container"></div>
+
+    <script id="templateOne" type="text/x-handlebars-template">
+        {{#authors}}
+        <div class="card">
+            <h2>{{name}}</h2>
+            <p>Born: {{born}}</p>
+            <p>Died: {{died}}</p>
+
+            <h3>A List of Selected Writings:</h3>
+            <ul>
+                {{#selectedWritings}}
+                <li>{{this}}</li>
+                {{/selectedWritings}}
+            </ul>
+
+            <p>Quote: {{quote}}</p>
+
+            <div id="picture">
+                <img src={{photo}} alt="a picture of the author">
+            </div>
+
+        </div>
+        {{/authors}}
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
