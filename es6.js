@@ -108,7 +108,7 @@ console.log(
         },
         {
             name: "Paris",
-            country: "France",
+            country: "Belgium",
         }
     )
 );
