@@ -34,3 +34,81 @@ function logInfo(city) {
 logInfo({ name: "Marseille", country: "France", population: 861635 });
 
 //Aufgabe 4
+
+let getNameAndCountryOld = ({ name, country }) => [name, country];
+
+let getNameAndCountry = function (obj) {
+    return [obj.name, obj.country];
+};
+
+// Also possible:
+// let getNameAndCountry = function ({ name, country }) {
+//     return [name, country];
+// };
+
+let getRelocatedCityOld = (city1, city2 = { country: "Germany" }) => {
+    let [, country] = getNameAndCountryOld(city2);
+    return {
+        ...city1,
+        country, //is short for country: country als replacing
+    };
+};
+
+let getRelocatedCity = function (cityOne, cityTwo) {
+    if (typeof cityTwo == "undefined") {
+        cityTwo.country = "Germany";
+    }
+    var arr = getNameAndCountry(cityTwo);
+    var newCountry = arr[1];
+
+    var newObj = {};
+    newObj.name = cityOne.name;
+    newObj.country = newCountry;
+
+    // would not be a new Object
+    // var newObj = cityOne;
+    // newObj.country = newCountry;
+
+    return newObj;
+};
+
+//Testen
+console.log(
+    getNameAndCountryOld({
+        name: "Berlin",
+        country: "Germany",
+    })
+);
+
+console.log(
+    getNameAndCountry({
+        name: "Berlin",
+        country: "Germany",
+    })
+);
+
+console.log(
+    getRelocatedCityOld(
+        {
+            name: "Berlin",
+            country: "Germany",
+        },
+        {
+            name: "Paris",
+            country: "France",
+        }
+    )
+);
+
+console.log(
+    getRelocatedCity(
+        {
+            name: "Berlin",
+            country: "Germany",
+        },
+        {
+            name: "Paris",
+            country: "Belgium",
+        }
+    )
+);
