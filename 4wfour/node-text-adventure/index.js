@@ -1,4 +1,5 @@
 const readline = require("readline");
+const chalk = require("chalk"); //for color
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -6,6 +7,8 @@ const rl = readline.createInterface({
 });
 
 const { story } = require("./story1"); //ES6 way easier
+
+let color = "white"; //startcolor
 
 function ask(storyItem) {
     let keysArr = [];
@@ -19,22 +22,58 @@ function ask(storyItem) {
         question = "|No hints this time|";
     }
 
-    rl.question(storyItem.q + question + " ", function (answer) {
+    //chalk.color geht nicht da variable und das wird zu string chalk.blue würde gehen
+    rl.question(chalk[color](storyItem.q + question + " "), function (answer) {
         if (storyItem.answers[answer]) {
             if (typeof storyItem.answers[answer] == "object") {
                 ask(storyItem.answers[answer]);
             } else {
-                console.log(storyItem.answers[answer]);
+                console.log(chalk[color](storyItem.answers[answer]));
                 rl.close();
             }
         } else {
-            console.log("Your answer was no valid input! Try again!");
+            console.log(
+                chalk[color]("Your answer was no valid input! Try again!")
+            );
             ask(storyItem); //ask again
         }
     });
 }
 
-ask(story);
+function askColor() {
+    rl.question("Which color should your questions have? ", function (answer) {
+        if (validColors.includes(answer)) {
+            color = answer;
+            ask(story); //start game
+        } else {
+            console.log("Thats not a color ... ");
+            askColor();
+        }
+    });
+}
+
+askColor();
+
+const validColors = [
+    "black",
+    "red",
+    "green",
+    "yellow",
+    "blue",
+    "magenta",
+    "cyan",
+    "white",
+    "blackBright",
+    "gray",
+    "grey",
+    "redBright",
+    "greenBright",
+    "yellowBright",
+    "blueBright",
+    "magentaBright",
+    "cyanBright",
+    "whiteBright",
+];
 
 /* <---------------------EXPLANATIONS ------------------------> */
 function askWithComments(storyItem) {
