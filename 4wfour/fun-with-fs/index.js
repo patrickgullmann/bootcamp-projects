@@ -17,16 +17,18 @@ function logSizes(path) {
                 let nextPath = `${path}/${item.name}`;
                 //if item is a file we need to log it + also log the size (neet fs.stat for it)
                 if (item.isFile()) {
-                    fs.stat(nextPath, (err, stats) => {
-                        //note: the stats is like the return!!!
-                        if (err) {
-                            console.log(err);
-                            return;
-                        } else {
-                            //console.log(path + "/" + item.name + ": " + stats.size);
-                            console.log(nextPath + ": " + stats.size);
-                        }
-                    });
+                    if (item.name != ".DS_Store") {
+                        fs.stat(nextPath, (err, stats) => {
+                            //note: the stats is like the return!!!
+                            if (err) {
+                                console.log(err);
+                                return;
+                            } else {
+                                //console.log(path + "/" + item.name + ": " + stats.size);
+                                console.log(nextPath + ": " + stats.size);
+                            }
+                        });
+                    }
                 } else {
                     logSizes(nextPath);
                 }
