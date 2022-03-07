@@ -1,6 +1,7 @@
 const http = require("http");
 
 const server = http.createServer(function (request, response) {
+    //Note: wenn wir das über den browser (nicht postman) machen, dann ist das erste laden bereits eine get request
     console.log(request.method, request.url, request.headers);
 
     request.on("error", function (err) {
@@ -15,7 +16,9 @@ const server = http.createServer(function (request, response) {
         response.statusCode = 200;
         response.setHeader("content-type", "text/html");
         response.end();
-    } else if (request.method == "GET") {
+    }
+
+    if (request.method == "GET") {
         response.statusCode = 200;
         response.setHeader("content-type", "text/html");
         // body erstellen für die Anfrage und senden
@@ -24,7 +27,12 @@ const server = http.createServer(function (request, response) {
         <title>Hello World!</title>
         <p>Hello World!</p>
         </html>`);
-    } else if (request.method == "POST") {
+    }
+
+    if (request.method == "POST") {
+        response.statusCode = 302;
+        //Anmerkung: nächste zeile führt direkt/sofort ein redirect durch d.h. eine get request -> Anzeige in Postman bezieht sich auf diese
+        response.setHeader("location", "/");
         //body erhalten und was damit machen
         let body = "";
         request
@@ -34,10 +42,14 @@ const server = http.createServer(function (request, response) {
             .on("end", function () {
                 console.log(body);
             });
-        response.statusCode = 302;
-        response.setHeader("location", "/");
         response.end();
-    } else {
+    }
+
+    if (
+        request.method != "HEAD" ||
+        request.method != "GET" ||
+        request.method != "POST"
+    ) {
         response.statusCode = 405;
         response.end();
     }
