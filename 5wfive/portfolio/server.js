@@ -69,10 +69,10 @@ http.createServer((req, res) => {
                 const newEntity = requestedEntity + "index.html";
                 console.log("newEntity:\t", newEntity);
 
-                //bleiben ja bei der selben request url!!
+                //bleiben ja bei der selben request url!! nur geben andere sache zurück
                 const readStream = fs.createReadStream(newEntity);
                 readStream.on("error", (error) => console.log(error));
-                readStream.pipe(res);
+                readStream.pipe(res); //wie res.end()
             } else if (req.url !== "/") {
                 res.statusCode = 301;
                 res.setHeader("location", `${req.url}/`);
