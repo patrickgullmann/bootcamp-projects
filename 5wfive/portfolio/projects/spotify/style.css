@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+#spotify {
+    width: 400px;
+    height: 200px;
+}
+
+.results-container {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+}
+
+.more-button {
+    display: none;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
+
+a {
+    margin: 5px;
+    align-self: center;
+    color: black;
+    text-decoration: none;
+}
