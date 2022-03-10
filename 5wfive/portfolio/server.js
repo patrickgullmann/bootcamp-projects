@@ -30,6 +30,11 @@ http.createServer((req, res) => {
         return res.end();
     }
 
+    // Just to trigger errrors for the master.js ------------------------------------------
+    if (Math.random() > 0.5) {
+        throw new Error("opusi");
+    }
+
     // 🏡 Home Page -------------------------------------------------------------
     if (req.url === "/") {
         const homePageHTML = homePage.generateHomePage();
