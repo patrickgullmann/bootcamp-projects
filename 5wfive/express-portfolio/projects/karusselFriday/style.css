@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+}
+
+#kitties {
+    height: 600px;
+    position: relative; /*dass die höhe vom Kind 100% von Container sein kann*/
+    overflow: hidden;
+}
+
+/*all the kitties wait on the right; hier kein duration dh sprint sofort dahin*/
+#kitties img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%; /* führt aber dazu dass Bild verzerrt*/
+    object-fit: cover; /*das verhindert es rel zum Parent*/
+    transform: translateX(100%); /*könnten auch left auf 100% machen*/
+}
+
+/*class for on screen*/
+#kitties img.onscreen {
+    transform: translateX(0);
+    transition-property: transform;
+    transition-duration: 1s;
+}
+
+/*class for exit on the right*/
+#kitties img.exit {
+    transform: translateX(-100%);
+    transition-property: transform;
+    transition-duration: 1s;
+}
+
+#dots {
+    position: absolute;
+    top: 530px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background-color: transparent;
+    margin: 10px;
+}
+
+.on {
+    background-color: white;
+}
