@@ -2,13 +2,19 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 
+//middleware können wir auch nur für bestimmten bereich laufen lassen z.b.
+app.use("/hello", function (req, res, next) {
+    console.log("Hello");
+    next();
+});
+
 app.use(
     express.urlencoded({
         extended: false,
     })
 );
 
-app.use(cookieParser());
+app.use(cookieParser()); //brauchen wir immer
 
 // app.use(function (req, res) {
 //     if (!req.cookies.accepted && req.url != "/cookie") {
@@ -41,7 +47,9 @@ app.get("/hello/world", function (req, res, next) {
         "//",
         req.cookies,
         "//",
-        req.cookies.duck
+        req.cookies.duck,
+        "//",
+        req.cookies.accepted
     );
     if (req.cookies.chicken) {
         console.log("True");
@@ -65,3 +73,7 @@ app.get("/redirect/spiced", function (req, res) {
 app.use(express.static("./projects"));
 
 app.listen(8080, () => console.log("Listening on 8080"));
+
+/*
+    res.cookie('url', req.url);
+*/
