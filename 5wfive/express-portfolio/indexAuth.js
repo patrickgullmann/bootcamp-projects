@@ -1,6 +1,21 @@
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
+const basicAuth = require("basic-auth");
+
+//just the function ... need to find a good place in the code for it
+const auth = function (req, res, next) {
+    const creds = basicAuth(req);
+    if (!creds || creds.name != "discoduck" || creds.pass != "123") {
+        res.setHeader(
+            "WWW-Authenticate",
+            'Basic realm="Enter your credentials to see this stuff."'
+        );
+        res.sendStatus(401);
+    } else {
+        next();
+    }
+};
 
 app.use(
     express.urlencoded({
@@ -15,11 +30,16 @@ app.use(function (req, res, next) {
 
     if (!req.cookies.accepted && req.url != "/cookie") {
         res.cookie("requestedUrl", req.url);
-        res.redirect("/cookie"); //an der stelle wird ja diese middleware wieder aufgerufen aber dann hängen wir im else deshalb next um den Redirect zu schaffen
+        res.redirect("/cookie");
     } else {
         next();
     }
 });
+
+//könnten auch vor dem cookie check machen! aber machen danach
+//Anmerkung: Browser merkt sich das für ne kurze Zeit das pw!! 
+//try it in private browser da wird nicht gemerkt
+app.use("/spotify", auth);
 
 app.get("/cookie", function (req, res) {
     res.send(
