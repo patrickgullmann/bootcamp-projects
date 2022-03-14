@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* min-height: 100vh; */ /* obwohl margin 0 added margin noch was weil wir screen setzen */
+    width: 100%;
+    background-color: darkgray;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    font-size: 12;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+h1,
+h4 {
+    text-align: center;
+    color: black;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+body div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project {
+    width: 25vw;
+    display: inline-block;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 15px;
+    padding: 20px;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.picture {
+    height: 300px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}

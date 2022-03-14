@@ -3,5 +3,11 @@
     {{#emojis}}
     <li>{{.}}</li>
     {{/emojis}}
-</ul>                       
-        
+</ul>   
+
+<h2>{{stressImportanceSmth "hello"}}</h2>
+
+<h2>We are passing the btn partial</h2>
+{{>button
+    text=btnText
+}}

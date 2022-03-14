@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Connect Four",
+        "directory": "connect-four"
+    },
+    {
+        "name": "Kitty Caroussel",
+        "directory": "karusselFriday"
+    },
+    {
+        "name": "Spotify Search",
+        "directory": "spotify"
+    }
+]

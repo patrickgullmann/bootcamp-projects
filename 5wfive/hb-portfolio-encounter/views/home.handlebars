@@ -2,6 +2,12 @@
 <h2>Hiiiiiiii {{cohort}}</h2>
 <ul>
     {{#teachers}}
-        <li>{{name}}</li>
+        <li>{{stressImportance name}}</li>
     {{/teachers}}
 </ul>
+
+<h2>We are passing the btn partial</h2>
+{{>button
+    icon=true
+    text=btnText
+}}

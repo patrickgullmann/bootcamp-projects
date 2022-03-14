@@ -2,6 +2,12 @@ const express = require("express");
 const app = express();
 const teachers = require("./data.json");
 
+app.locals.helpers = {
+    stressImportance(str) {
+        return str.toUpperCase();
+    },
+};
+
 // eig eine property von zb const hb = require("express-handlebars"); -> hb.engine
 const { engine } = require("express-handlebars");
 
@@ -22,6 +28,7 @@ app.get("/", (req, res) => {
         cohort: "Truffle",
         teachers,
         title: "HB Portfolio",
+        btnText: "Click the home btn",
     });
 });
 
@@ -30,7 +37,20 @@ app.get("/about", (req, res) => {
         layout: "main",
         emojis: ["🦍", "🤡", "🐸", "🐙"],
         title: "About",
+        btnText: "Click the about btn",
+        //only for about! but you can make it globally
+        helpers: {
+            stressImportanceSmth(str) {
+                return str.toUpperCase();
+            },
+        },
     });
+});
+
+//adding a dynamic route
+app.get("/about/:demo", (req, res) => {
+    console.log("req.params", req.params);
+    res.send("<h1> DEMO </h1>");
 });
 
 app.listen(8080, () => console.log("Listening on 8080 lol"));
