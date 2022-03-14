@@ -1,0 +1,17 @@
+{{#if welcome}}
+    {{#projects}}
+        <div class="project">
+            <div class="picture">
+                {{! hätten bei dem oberen ja auch wieder localhost schreiben können }}
+                <a href="./projects/{{directory}}"><img
+                        src="./{{directory}}/screenshot.jpg"
+                    /></a>
+            </div>
+            <a href="./projects/{{directory}}">{{name}}</a>
+        </div>
+    {{/projects}}
+{{else}}
+    {{#projects}}
+        <a href="http://localhost:8080/projects/{{directory}}">{{name}}</a>
+    {{/projects}}
+{{/if}}

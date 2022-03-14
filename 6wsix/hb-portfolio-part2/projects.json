@@ -1,14 +1,17 @@
 [
     {
         "name": "Connect Four",
-        "directory": "connect-four"
+        "directory": "connect-four",
+        "description": "I'm baby vexillologist etsy biodiesel kinfolk literally kitsch meditation forage, glossier godard neutra palo santo tattooed farm-to-table ethical. Next level health goth hoodie stumptown, cardigan la croix kinfolk neutra blog subway tile kale chips taiyaki DIY. Health goth church-key heirloom green juice narwhal. Craft beer next level try-hard fanny pack flannel wolf. IPhone kinfolk readymade whatever try-hard. Photo booth YOLO affogato meh williamsburg flannel raclette blue bottle live-edge tilde tattooed. Marfa irony unicorn wayfarers."
     },
     {
         "name": "Kitty Caroussel",
-        "directory": "karusselFriday"
+        "directory": "karusselFriday",
+        "description": "Humblebrag pork belly freegan sartorial. Echo park skateboard deep v narwhal brunch taiyaki. Chambray banh mi neutra venmo, vinyl vape ennui brooklyn ugh biodiesel fingerstache +1 shoreditch. Raclette salvia vape, stumptown poke chillwave tattooed portland plaid quinoa pop-up."
     },
     {
         "name": "Spotify Search",
-        "directory": "spotify"
+        "directory": "spotify",
+        "description": "Squid before they sold out church-key direct trade thundercats typewriter stumptown helvetica lomo affogato edison bulb locavore shabby chic cornhole sustainable. Biodiesel pabst church-key aesthetic cliche semiotics. Mustache mlkshk subway tile, banh mi chicharrones copper mug neutra tilde beard meditation synth taxidermy vape. Actually tacos disrupt roof party offal tattooed. Fixie copper mug tofu air plant. Biodiesel waistcoat mumblecore tilde pug +1 post-ironic brunch cornhole direct trade vinyl green juice succulents."
     }
 ]

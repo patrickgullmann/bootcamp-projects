@@ -20,7 +20,24 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/projects/:project", (req, res) => {
+    const project = req.params.project;
+    //console.log("req.params", req.params);
+    //console.log(project);
+    const selectedProject = projects.find((item) => item.directory == project);
+    if (!selectedProject) {
+        return res.sendStatus(404);
+    }
+
+    res.render("description", {
+        layout: "main", //setup
+        title: "Description",
+        projects,
+        selectedProject,
+    });
+});
+
 app.use(express.static("./projects"));
 app.use(express.static("./public"));
 
-app.listen(8080, () => console.log("Listening on 8080 lol"));
+app.listen(8080, () => console.log("Listening on 8080 with eaaaazy vibeeezzz"));

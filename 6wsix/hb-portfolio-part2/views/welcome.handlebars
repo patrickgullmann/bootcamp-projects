@@ -1,16 +1,8 @@
 <h1>Dear Reader, this is my page full of awesome projects</h1>
 <h4>Today there is connect 4, tomorrow the world!</h4>
 <div id="container">
-    {{#projects}}
-        <div class="project">
-            {{! localhost und ./ sind das gleiche  }}
-            <div class="picture">
-                <a href="./{{directory}}"><img
-                        src="./{{directory}}/screenshot.jpg"
-                    /></a>
-            </div>
-            <a href="http://localhost:8080/{{directory}}">{{name}}</a>
-        </div>
-    {{/projects}}
+    {{>projList
+        welcome=true
+    }}
 </div>
 <h4>Mahatma Gandhi - “Be the change that you wish to see in the world.”</h4>

@@ -1,0 +1,21 @@
+{{! müssen ja zurückkommen von dem Ordner, deshalb zweimal .. }}
+
+<div class="description">
+    <div class="sideBar">
+        <h3>Welcome to the Description</h3>
+        {{>projList
+            welcome=false
+        }}
+        <a href="../"> >>> Back to Welcome page</a>
+    </div>
+
+    <div class="main"> 
+        <a href="../{{selectedProject.directory}}"><h3>{{selectedProject.name}}</h3></a>
+        <div id="largePic">
+            <a href="../{{selectedProject.directory}}"><img
+                    src="../{{selectedProject.directory}}/screenshotLarge.jpg"
+                /></a>
+        </div>
+        <p>{{selectedProject.description}}</p>
+    </div>
+</div>

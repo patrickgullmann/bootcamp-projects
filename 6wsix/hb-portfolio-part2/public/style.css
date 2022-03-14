@@ -38,7 +38,7 @@ a {
     font-weight: bold;
 }
 
-body div {
+body #container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,7 +61,7 @@ body div {
     margin-bottom: 15px;
 }
 
-img {
+.picture img {
     position: absolute;
     top: 0;
     left: 0;
@@ -69,4 +69,60 @@ img {
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
+}
+
+/* Style for the desciption page */
+
+.description {
+    display: flex;
+    padding: 10px;
+}
+
+.sideBar {
+    width: 20%;
+}
+
+.sideBar h3 {
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.sideBar a {
+    display: block;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.main {
+    width: 60%;
+    margin-left: 20px;
+}
+
+.main a h3 {
+    display: block;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.main #largePic {
+    display: block;
+    margin-top: 10px;
+    /* border: 2px white solid; */
+}
+
+.main p {
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 5px;
 }
