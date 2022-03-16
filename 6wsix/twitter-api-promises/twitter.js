@@ -5,10 +5,8 @@ const authorization = `Basic ${Buffer.from(
     twitterKey + ":" + twitterSecret
 ).toString("base64")}`;
 
-//console.log(twitterKey, twitterSecret);
-//console.log(authorization);
-
-//WHY NOT CHANGE THE CALLBACKS HERE INSIDE?
+//WHY NOT CHANGE THE CALLBACKS HERE INSIDE -> need a PROMISIFY Constructor
+// + promisify the function it gets passed (in other file) needs a node callback style function here
 exports.getToken = function (callback) {
     const req = https.request(
         {
