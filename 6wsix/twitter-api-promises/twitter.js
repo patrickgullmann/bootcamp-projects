@@ -8,6 +8,7 @@ const authorization = `Basic ${Buffer.from(
 //console.log(twitterKey, twitterSecret);
 //console.log(authorization);
 
+//WHY NOT CHANGE THE CALLBACKS HERE INSIDE?
 exports.getToken = function (callback) {
     const req = https.request(
         {
